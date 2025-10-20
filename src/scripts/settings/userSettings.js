@@ -178,6 +178,19 @@ export class UserSettings {
         return toBoolean(this.get('limitSegmentLength', false), false);
     }
 
+        /**
+     * Get or set 'Use hls.js' state.
+     * @param {boolean|undefined} val - Flag to enable 'Use hls.js' or undefined.
+     * @returns {boolean} 'Use hls.js' state.
+     */
+        useHlsJs(val) {
+            if (val !== undefined) {
+                return this.set('useHlsJs', val.toString(), false);
+            }
+    
+            return toBoolean(this.get('useHlsJs', false), false);
+        }
+
     /**
      * Get or set 'Cinema Mode' state.
      * @param {boolean|undefined} val - Flag to enable 'Cinema Mode' or undefined.
