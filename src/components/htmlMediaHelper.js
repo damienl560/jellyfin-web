@@ -2,7 +2,6 @@ import appSettings from '../scripts/settings/appSettings' ;
 import browser from '../scripts/browser';
 import Events from '../utils/events.ts';
 import { MediaError } from 'types/mediaError';
-import * as userSettings from '../scripts/settings/userSettings';
 
 export function getSavedVolume() {
     return appSettings.get('volume') || 1;
@@ -51,8 +50,8 @@ export function enableHlsJsPlayer(runTimeTicks, mediaType) {
 
     // Native HLS support in WebOS only plays stereo sound. hls.js works better, but works only on WebOS 4 or newer.
     // Using hls.js also seems to fix fast forward issues that native HLS has.
-    // Commented out while I setup a user toggle
-    const enableUseHlsJs = userSettings.useHlsJs();
+    // hls.js is enabled according to settings set by user
+    const enableUseHlsJs = appSettings.useHlsJs();
     
     if (browser.web0sVersion >= 4 && enableUseHlsJs) {
         return true;

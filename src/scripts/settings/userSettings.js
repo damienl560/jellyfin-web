@@ -178,19 +178,6 @@ export class UserSettings {
         return toBoolean(this.get('limitSegmentLength', false), false);
     }
 
-        /**
-     * Get or set 'Use hls.js' state.
-     * @param {boolean|undefined} val - Flag to enable 'Use hls.js' or undefined.
-     * @returns {boolean} 'Use hls.js' state.
-     */
-        useHlsJs(val) {
-            if (val !== undefined) {
-                return this.set('useHlsJs', val.toString(), false);
-            }
-    
-            return toBoolean(this.get('useHlsJs', false), false);
-        }
-
     /**
      * Get or set 'Cinema Mode' state.
      * @param {boolean|undefined} val - Flag to enable 'Cinema Mode' or undefined.
@@ -698,7 +685,6 @@ export const serverConfig = currentSettings.serverConfig.bind(currentSettings);
 export const allowedAudioChannels = currentSettings.allowedAudioChannels.bind(currentSettings);
 export const preferFmp4HlsContainer = currentSettings.preferFmp4HlsContainer.bind(currentSettings);
 export const limitSegmentLength = currentSettings.limitSegmentLength.bind(currentSettings);
-export const useHlsJs = currentSettings.useHlsJs.bind(currentSettings);
 export const enableCinemaMode = currentSettings.enableCinemaMode.bind(currentSettings);
 export const selectAudioNormalization = currentSettings.selectAudioNormalization.bind(currentSettings);
 export const enableNextVideoInfoOverlay = currentSettings.enableNextVideoInfoOverlay.bind(currentSettings);
